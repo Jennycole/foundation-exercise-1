@@ -13,6 +13,14 @@ let cleanProductList = () => {
   `);
 };
 
+const deleteProduct = product => {
+  if(confirm("¿Desea Eliminar el Producto?")){
+    $(product).parent().parent().parent().parent().parent().remove();
+  }
+  
+
+}
+
 const buildProductCard = product => (
   `
     <li style="list-style-type: none">
@@ -24,8 +32,12 @@ const buildProductCard = product => (
         </div>
         <div class="col-lg-8">
           <div>
-            <h4 class="card-title">
+            <h4 class="card-title"> 
               <strong>${product['product-name']}</strong>
+              <button type="button" onClick="deleteProduct(this)" class="btn btn-primary"> 
+              <img src="/img/trashIcon.png"/>
+              </button>
+               
             </h4>
           </div>
           <div>
